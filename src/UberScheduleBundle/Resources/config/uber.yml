@@ -1,0 +1,9 @@
+parameters:
+  class.guzzle.response: Guzzle\Http\Message\Response
+  class.guzzle.client: Guzzle\Http\Client
+  class.guzzle.oauthplugin: Guzzle\Plugin\Oauth\OauthPlugin
+ 
+services:
+  guzzle.uber.client:
+    class: 'UberScheduleBundle\Service\UberClient'
+    arguments: [%uber%]

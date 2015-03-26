@@ -1,0 +1,4 @@
+_test:
+    resource: "@AppBundle/Controller/DefaultController.php"
+    type:     annotation
+    prefix:   /default

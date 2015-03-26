@@ -1,0 +1,3 @@
+uber_schedule_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: UberScheduleBundle:Default:index }

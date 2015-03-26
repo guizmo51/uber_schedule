@@ -1,3 +1,10 @@
+uber_schedule:
+    resource: "@UberScheduleBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+test:
+    path: /default
+    defaults:  { _controller: AppBundle:Default:test }

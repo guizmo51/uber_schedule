@@ -1,0 +1,6 @@
+parameters:
+    uber:
+        baseurl: https://sandbox-api.uber.com/v1/
+        idClient: IAhDficz9G3oQXGqJk70G42F3eDEaZ-W
+        serverToken: NnxgBeHKW6nb-f0fBib4a-J1loIuRt0agMA3Tdp5
+        secretClient: ilQGd6FW-A_oVSfVeLXdiD2XbZSalQnE7N_Rpain
