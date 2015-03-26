@@ -4,7 +4,8 @@ namespace UberScheduleBundle\Service;
 use GuzzleHttp\Client;
 use GuzzleHttp\Command\Guzzle\Description;
 use GuzzleHttp\Command\Guzzle\GuzzleClient;
- 
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
  
@@ -14,7 +15,7 @@ class UberClient extends GuzzleClient
     public function __construct(array $matpe = [], array $config = []){
         $resolver = new OptionsResolver();
         $this->configureOptionResolver($resolver);
- 
+
         // validation des paramètres 
         $options = $resolver->resolve($matpe);
  
@@ -30,26 +31,48 @@ $array = array(
 
 
         $client = new Client((array) $array);
- 
-        // définition des requètes supportées par notre service
+ $locator = new FileLocator(__DIR__.'/../Resources/config');
+        $jsonFiles = $locator->locate('webservices.json', null, false);
         $description = new Description([
-            "name" => 'MaTpe',
+            "name" => 'Uber',
             "description" => "Exemple d'API MaTpe avec Guzzle",
-            // list des opérations supportées
             "operations" => [
-                // pour commencer, une simple récupération de la liste des clients
                 "getProducts" => [
                     "httpMethod" => "GET",
-                    // l'uri est ajoutée à notre base_url définie par défaut
-                    "uri"=> "products",
-                    // la réponse attendue sera traitée avec le model jsonResponse, 
-                    // déclaré plus bas dans "models"
+                   "uri"=> "products",
                     "responseModel" => "jsonResponse",
-                    // par défaut tout paramètre additionnel passé à cette requète
-                    // sera envoyé dans le query_string de l'url appelée
                     "additionalParameters" => [
                        "location"=>"query"
                     ]
+                ],
+                "getProduct" => [
+                    "httpMethod" => "GET",
+                    "uri" => "products/{id}",
+                    "responseModel" => "jsonResponse",
+                    "parameters" => [
+                        "id" => [
+                            "required" => true,
+                            "location" => "uri"
+                        ]
+                    ]
+                ],
+                "getEstimatesPrice" => [
+                        "httpMethod" => "GET",
+                        "uri" => "estimates/price",
+                        "responseModel" => "jsonResponse",
+                    "additionalParameters" => [
+                       "location"=>"query"
+                    ]
+
+                ],
+                  "getEstimatesTime" => [
+                        "httpMethod" => "GET",
+                        "uri" => "estimates/time",
+                        "responseModel" => "jsonResponse",
+                    "additionalParameters" => [
+                       "location"=>"query"
+                    ]
+
                 ],
               
             ],
