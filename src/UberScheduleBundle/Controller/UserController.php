@@ -56,11 +56,11 @@ class UserController extends Controller implements ClassResourceInterface
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLINFO_HEADER_OUT, true);
-            
+        
         $data = array('client_secret'=>$clientSecret,
             'client_id'=>$clientId,
             'grant_type'=>'authorization_code',
-            'redirect_uri'=>$backUrl.'/app_dev.php/user/uber/f6d75c949cda2517b826cacba5523792',
+            'redirect_uri'=>$backUrl.$this->generateUrl('user_uber'),
             'code'=>$authCode);
        
         curl_setopt ($ch, CURLOPT_POST, true); 
