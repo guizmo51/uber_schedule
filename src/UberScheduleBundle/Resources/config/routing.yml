@@ -35,7 +35,7 @@ request_get_product:
         pid: \S+
 
 request_get_price_estimates:
-    path:  {startLat}/{startLon}/{endLat}/{endLon}
+    path:  /request/price_estimates/{startLat}/{startLon}/{endLat}/{endLon}
     defaults: { _controller: UberScheduleBundle:Request:getPriceEstimates }
     requirements:
         startLat: ^(\-?\d+(\.\d+)?)
