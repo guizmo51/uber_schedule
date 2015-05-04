@@ -1,0 +1,26 @@
+<p>When do you want to use Uber ? </p>
+ <div class="btn-group">
+        <label class="btn btn-success" ng-model="formData.when" ng-click="later=false" btn-radio="'now'" uncheckable>Now</label>
+        <label class="btn btn-success" ng-model="formData.when" ng-click="later=true" btn-radio="'later'" uncheckable>Later</label>
+        <label class="btn btn-success" ng-model="formData.when" ng-click="later=false" btn-radio="'Right'" uncheckable>Right</label>
+  </div>
+ <div ng-show="later" class="ng-hide">
+   <div class="row">
+        <div class="col-md-6">
+            <p class="input-group">
+              <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="formData.date" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+        </div>
+    </div>
+ </div>
+
+<div class="form-group row">
+<div class="col-xs-6 col-xs-offset-3">
+    <a ui-sref="form.where" class="btn btn-block btn-info">
+    Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+</div>
+</div>

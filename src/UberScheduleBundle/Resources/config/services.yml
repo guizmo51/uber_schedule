@@ -1,3 +1,15 @@
+parameters:
+	kernel.event_listener.json_request_transformer.class: Qandidate\Common\Symfony\HttpKernel\EventListener\JsonRequestTransformerListener
+
+services:
+    acme_api.event.jwt_created_listener:
+        class: UberScheduleBundle\EventListener\JWTCreatedListener
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_created, method: onJWTCreated }
+    acme_api.event.authentication_success_listener:
+        class: UberScheduleBundle\EventListener\AuthenticationSuccessListener
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_authentication_success, method: onAuthenticationSuccessResponse }       
 imports:
 - { resource: uber.conf.yml }
 - { resource: uber.yml }

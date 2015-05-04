@@ -31,8 +31,6 @@ $array = array(
 
 
         $client = new Client((array) $array);
- $locator = new FileLocator(__DIR__.'/../Resources/config');
-        $jsonFiles = $locator->locate('webservices.json', null, false);
         $description = new Description([
             "name" => 'Uber',
             "description" => "Exemple d'API MaTpe avec Guzzle",

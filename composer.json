@@ -23,11 +23,14 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "friendsofsymfony/rest-bundle": "~1.5",
         "jms/serializer-bundle": "0.13.*",
-        "guzzlehttp/guzzle": "5.0.*@dev",
-        "guzzlehttp/guzzle-services": "0.5.*"
+        "stevenmaguire/uber-php": "~1.0",
+        "nelmio/cors-bundle": "~1.4",
+         "gfreeau/get-jwt-bundle": "~1.0"
     },
     "require-dev": {
-        "sensio/generator-bundle": "~2.3"
+        "sensio/generator-bundle": "~2.3",
+        "playbloom/guzzle-bundle": "v1.0.4",
+        "leaphub/phpcs-symfony2-standard": "~2.0.0"
     },
     "scripts": {
         "post-root-package-install": [

@@ -1,3 +1,95 @@
 uber_schedule_homepage:
     path:     /hello/{name}
     defaults: { _controller: UberScheduleBundle:Default:index }
+
+user_list:
+    path: /user
+    defaults: { _controller: UberScheduleBundle:User:index }
+user_redirect:
+    path: /user/redirect
+    defaults: { _controller: UberScheduleBundle:User:redirect }
+
+user_info:
+    path: /user/info
+    defaults: { _controller: UberScheduleBundle:User:getInfo }
+
+user_activity:
+    path: /user/activity
+    defaults: { _controller: UberScheduleBundle:User:getActivity }
+
+user_get_profile:
+    path: /user/profile
+    defaults: { _controller: UberScheduleBundle:User:getProfile }
+
+request_get_products:
+    path: /request/products/{lat}/{lon}
+    defaults: { _controller: UberScheduleBundle:Request:getProducts }
+    requirements:
+        lat: ^(\-?\d+(\.\d+)?)
+        lon: ^(\-?\d+(\.\d+)?)
+
+request_get_product:
+    path: /request/product/{pid}
+    defaults: { _controller: UberScheduleBundle:Request:getProduct }
+    requirements:
+        pid: \S+
+
+request_get_price_estimates:
+    path:  {startLat}/{startLon}/{endLat}/{endLon}
+    defaults: { _controller: UberScheduleBundle:Request:getPriceEstimates }
+    requirements:
+        startLat: ^(\-?\d+(\.\d+)?)
+        startLon:  ^(\-?\d+(\.\d+)?)
+        endLat: ^(\-?\d+(\.\d+)?)
+        endLon: ^(\-?\d+(\.\d+)?)
+
+request_get_time_estimates:
+    path: /request/time_estimates/{startLat}/{startLon}
+    defaults: {_controller: UberScheduleBundle:Request:getTimeEstimates }
+    requirements:
+        startLat: ^(\-?\d+(\.\d+)?)
+        startLon:  ^(\-?\d+(\.\d+)?)
+
+request_get_promotions:
+    path: /request/promotions/{startLat}/{startLon}/{endLat}/{endLon}
+    defaults: { _controller: UberScheduleBundle:Request:getPromotions, endLat:null, endLon: null }
+    requirements:
+        startLat: ^(\-?\d+(\.\d+)?)
+        startLon:  ^(\-?\d+(\.\d+)?)
+        endLat: ^(\-?\d+(\.\d+)?)
+        endLon: ^(\-?\d+(\.\d+)?)
+
+request_ride:
+    path:  /request/ride
+    defaults: { _controller: UberScheduleBundle:Request:ride }
+    requirements:
+        _method:  POST
+
+request_map:
+    path:  /request/map/{requestId}
+    defaults: { _controller: UberScheduleBundle:Request:map }
+    requirements:
+        _method:  GET
+        requestId: \S+
+
+request_ride_details:
+    path: /request/details/{requestId}
+    defaults: { _controller: UberScheduleBundle:Request:rideDetails }
+    requirements:
+        requestId: \S+
+
+request_ride_cancel:
+    path: /request/cancel/{requestId}
+    defaults: { _controller: UberScheduleBundle:Request:rideCancel }
+    requirements:
+        requestId: \S+
+
+request_edit:
+    path: /request/edit/{requestId}/{status}
+    defaults: { _controller: UberScheduleBundle:Request:editRequest }
+    requirements:
+        requestId: \S+
+
+request_refresh:
+    path: /request/request_refresh
+    defaults: { _controller:UberScheduleBundle:Request:refreshRequests }

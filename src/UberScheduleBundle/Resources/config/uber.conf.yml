@@ -1,6 +1,15 @@
 parameters:
-    uber:
+    uberClient:
         baseurl: https://api.uber.com/v1/
-        idClient: IAhDficz9G3oQXGqJk70G42F3eDEaZ-W
-        serverToken: NnxgBeHKW6nb-f0fBib4a-J1loIuRt0agMA3Tdp5
-        secretClient: ilQGd6FW-A_oVSfVeLXdiD2XbZSalQnE7N_Rpain
+        sandboxUrl: https://sandbox-api.uber.com/
+        idClient: rA_xJyeKF3srdRgdoGYlfPLG6eLA-uno
+        serverToken: YU7tAiBg_SUJ_tBDBh0SJZwbhcVb1pLrqrGVcIn7
+        secretClient: nFiAI2J9uMY3Wk5YIjRvPQ4MtMBmlsf0CLht6Lzd
+        useSandbox: true
+    uberAuth:
+        baseurl:  https://login.uber.com/
+        sandboxUrl: https://sandbox-api.uber.com/
+        idClient: rA_xJyeKF3srdRgdoGYlfPLG6eLA-uno
+        serverToken: YU7tAiBg_SUJ_tBDBh0SJZwbhcVb1pLrqrGVcIn7
+        secretClient: nFiAI2J9uMY3Wk5YIjRvPQ4MtMBmlsf0CLht6Lzd
+        useSandbox: true

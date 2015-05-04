@@ -1,0 +1,9 @@
+DocumentRoot /Library/WebServer/WWW/uber_schedule/web
+    <Directory /Library/WebServer/WWW/uber_schedule/web>
+        # enable the .htaccess rewrites
+        AllowOverride All
+        Order allow,deny
+        Allow from All
+    </Directory>
+ErrorLog /var/log/apache2/uber_scheduleError.log
+CustomLog /var/log/apache2/uber_schedule_access.log combined

@@ -20,6 +20,10 @@ class AppKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new AppBundle\AppBundle(),
             new UberScheduleBundle\UberScheduleBundle(),
+            new Playbloom\Bundle\GuzzleBundle\PlaybloomGuzzleBundle(),
+            new Nelmio\CorsBundle\NelmioCorsBundle(),
+            new Gfreeau\Bundle\GetJWTBundle\GfreeauGetJWTBundle(),
+            new Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
