@@ -144,7 +144,10 @@ class UserController extends Controller implements ClassResourceInterface
 
     public function redirectAction(){
         // TODO changer url
-        return $this->redirect("https://login.uber.com/oauth/authorize?client_id=rA_xJyeKF3srdRgdoGYlfPLG6eLA-uno&response_type=code&scope=profile%20history_lite%20history%20request", 301);
+        $conf = $this->container->getParameter('uberClient');
+        $clientId = $conf['idClient'];
+
+        return $this->redirect("https://login.uber.com/oauth/authorize?client_id=".$clientId."&response_type=code&scope=profile%20history_lite%20history%20request", 301);
     }
 
     /**
