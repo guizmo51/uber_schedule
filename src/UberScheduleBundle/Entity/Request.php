@@ -209,7 +209,6 @@ class Request
     {    
         if(isset($this->tz)){
             $date = $this->requestTimeUTC;
-            var_dump($date);
             $date->setTimezone(new \DateTimeZone($this->tz));
             
             return $date;
