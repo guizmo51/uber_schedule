@@ -130,10 +130,10 @@ class UserController extends Controller implements ClassResourceInterface
                 
                 $em->flush();
                 
-                $this->container->getParameter('front_url');
+                $frontUrl = $this->container->getParameter('front_url');
                 $fullUrl = $this->container->getParameter('back_url').$this->generateUrl('get_jwt_token', array('username'=>$profile->uuid, 'password'=>$password));
 
-              return $this->redirect("http://localhost:9002/#/login#".base64_encode($fullUrl));
+              return $this->redirect($frontUrl."/#/login#".base64_encode($fullUrl));
             
             }
         }
