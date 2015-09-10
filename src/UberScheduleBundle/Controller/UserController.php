@@ -70,7 +70,7 @@ class UserController extends Controller implements ClassResourceInterface
         $result = curl_exec($ch);
 
         if($dataJson = json_decode($result, true)){
-
+            var_dump($dataJson);
             if(isset($dataJson['error'])){
 
                 throw new AccessDeniedException("Your code expired, please log in again");
